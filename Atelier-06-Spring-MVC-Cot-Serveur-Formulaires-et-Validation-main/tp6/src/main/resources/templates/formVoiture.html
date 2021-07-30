@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="template">
+<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" />
+<head>
+<meta charset="utf-8">
+<title>Ajout des Voitures</title>
+</head>
+<body>
+<div layout:fragment="Mycontent">
+<div class="container mt-5">
+<div class="card">
+<div class="card-header"> Ajout des Voitures </div>
+<div class="card-body">
+<form th:action="@{saveVoiture}" method="post">
+<div class="form-group">
+<label class="control-label" hidden>ID Voiture :</label>
+<input type="hidden" name="idVoiture" class="form-control" th:value="${voiture.idVoiture}" />
+</div>
+<div class="form-group">
+<label class="control-label"> numero de serie :</label>
+<input type="text" name="numSerie" class="form-control" th:value="${voiture.numSerie}"/>
+<span th:errors= ${voiture.numSerie} class="text-danger"> </span>
+</div>
+<div class="form-group">
+<label class="control-label">Prix Voiture:</label>
+<input type="text" name="prix" class="form-control" th:value="${voiture.prix}"/>
+<span th:errors=${voiture.prix} class="text-danger"> </span>
+</div>
+<div class="form-group">
+<label class="control-label">date Fabrication:</label>
+<input type="date" name="dateFabrication" class="form-control" th:value="${voiture.dateFabrication}"/>
+<span th:errors=${voiture.dateFabrication} class="text-danger"> </span>
+</div>
+<div>
+<button type="submit" class="btn btn-primary">Valider</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
